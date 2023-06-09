@@ -82,7 +82,7 @@ outputs:
 
   - name: sktime-all-extras
     build:
-      # Skip building this package because many of the dependencies are not available yet
+      # Skip building this package because many of the dependencies are not available yet.
       skip: true
     requirements:
       run:
