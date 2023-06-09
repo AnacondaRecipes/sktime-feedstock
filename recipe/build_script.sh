@@ -1,1 +1,4 @@
-$PYTHON -m pip install . --no-deps -vv --no-build-isolation
+#!/usr/bin/env bash
+set -eux
+
+$PYTHON -m pip install . --no-deps --no-build-isolation -vv
