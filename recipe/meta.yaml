@@ -11,6 +11,8 @@ source:
 
 build:
   number: 0
+  # numba is not available on s390x
+  skip: true  # [s390x]
   skip: true  # [py<37 or py>311]
 
 # This section is required to correctly rerender skip statement
@@ -96,10 +98,10 @@ outputs:
         - filterpy
         - h5py
         # - hmmlearn  # not on CF
-        # - gluonts  # not on CF
+        - gluonts
         - matplotlib-base
         - mne
-        - numba >=0.53                           # [py<311]
+        - numba >=0.53
         - pmdarima
         - prophet
         - pykalman
@@ -115,8 +117,6 @@ outputs:
         - xarray
 
     test:
-      requires:
-        - pip
       imports:
         - sktime
         - sktime.classification
