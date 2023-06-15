@@ -22,21 +22,17 @@ requirements:
     - pip
     - setuptools
     - wheel
-    - toml
-    - python-build
 
 outputs:
   - name: sktime
-    script: build_script.sh  # [unix]
-    script: build_script.bat  # [win]
+    build:
+      script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
     requirements:
       host:
         - python
         - pip
         - setuptools
         - wheel
-        - toml
-        - python-build
       run:
         - python
         - deprecated >=1.2.13
