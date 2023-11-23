@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/sktime/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 75cb18dbc2fc4e15316130e1401e676f568faade8b711b5140e8c2fd1ff60b06
 
 build:
