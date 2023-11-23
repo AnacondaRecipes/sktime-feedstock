@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 75cb18dbc2fc4e15316130e1401e676f568faade8b711b5140e8c2fd1ff60b06
+  sha256: 9d5ac84546676fd64fb05bb5fc077d38703bea3bcf711885e992da7bf12f6b83
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - packaging
     - pandas >=1.1,<2.2.0
-    - scikit-base <0.7.0
+    - skbase <0.7.0
     - scikit-learn >=0.24,<1.4.0
     - scipy >=1.2.0,<2.0.0
   run_constrained:
