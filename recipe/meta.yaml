@@ -2,7 +2,7 @@
 {% set version = "0.24.1" %}
 
 package:
-  name: sktime-suite
+  name: sktime
   version: {{ version }}
 
 source:
@@ -21,7 +21,7 @@ requirements:
     - wheel
   run:
     - python
-    - {{ pin_compatible('numpy') }}
+    - numpy <1.27,>=1.21
     - packaging
     - pandas >=1.1,<2.2.0
     - skbase <0.7.0
