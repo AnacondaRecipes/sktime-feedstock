@@ -7,33 +7,22 @@ This avoids having the build_tools, docs and other unnecessary things to be
 installed in site-packages's root.
 
 ---
- pyproject.toml | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index dd7fe360..e06a750e 100644
+index dd7fe360..94e28aa5 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -290,6 +290,9 @@ requires = [
-   "setuptools>61",
+@@ -302,7 +302,7 @@ sktime = [
  ]
  
-+[tool.setuptools]
-+packages = ["sktime"]
-+
- [tool.setuptools.package-data]
- sktime = [
-   "*.csv",
-@@ -301,9 +304,6 @@ sktime = [
-   "*.tsv",
- ]
- 
--[tool.setuptools.packages.find]
+ [tool.setuptools.packages.find]
 -exclude = ["tests", "tests.*"]
--
++include = ["sktime*"]
+ 
  [tool.nbqa.exclude]
  black = "^docs/source/examples/"
- flake8 = "^docs/source/examples/"
 -- 
 2.42.1
 
