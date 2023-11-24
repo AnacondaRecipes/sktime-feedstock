@@ -8,12 +8,17 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 9d5ac84546676fd64fb05bb5fc077d38703bea3bcf711885e992da7bf12f6b83
+  patches:
+    - 0001-Only-inlude-sktime-package.patch
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
+  build:
+    - m2-patch  # [win]
+    - patch  # [not win]
   host:
     - python
     - pip
