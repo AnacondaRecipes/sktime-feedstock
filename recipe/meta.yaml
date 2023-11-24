@@ -38,7 +38,6 @@ requirements:
     - esig 0.9.7                    # [py<310]
     - filterpy >=1.4.5              # [py<311]
     - gluonts >=0.9
-    - h5py                          # [py<312]
     - hmmlearn >=0.2.7              # [py<311]
     - keras-self-attention          # [py<311]
     - kotsu >=0.3.1
