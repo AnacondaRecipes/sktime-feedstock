@@ -34,36 +34,31 @@ requirements:
     - scipy >=1.2.0,<2.0.0
   run_constrained:
     - arch >=5.6,<6.3.0
-    - cloudpickle
-    - dask
-    - dtw-python
-    - esig 0.9.7  # [py<10]
-    - filterpy >=1.4.5  # [py<311]
+    - dash !=2.9.0
+    - esig 0.9.7                    # [py<310]
+    - filterpy >=1.4.5              # [py<311]
     - gluonts >=0.9
-    - h5py  # [py<312]
-    - hmmlearn  # [py<311]
-    - holidays
-    - keras-self-attention  # [py<311]
+    - h5py                          # [py<312]
+    - hmmlearn >=0.2.7              # [py<311]
+    - keras-self-attention          # [py<311]
     - kotsu >=0.3.1
     - matplotlib-base >=3.3.2
-    - mne
-    - numba >=0.53,<0.59
-    - pmdarima >1.8.1,<3.0.0  # [py<312]
-    - prophet >=1.1  # [py<312]
+    - numba >=0.53,<0.59            # [py<312]
+    - pmdarima !=1.8.1,>=1.8,<3.0.0 # [py<312]
+    - prophet >=1.1                 # [py<312]
+    - pycatch22 <0.4.4
     - pykalman-bardo >=0.9.7,<0.10
-    - pyod >=0.8  # [py<312]
-    - scikit-optimize
+    - pyod >=0.8                    # [py<311]
+    - scikit_posthocs >=0.6.5
     - seaborn >=0.11
-    - seasonal
     - skpro >=2,<2.2.0
-    - statsforecast <1.7.0,>=0.5.2  # [py<312]
+    - statsforecast >=0.5.2,<1.7.0  # [py<312]
     - statsmodels >=0.12.1
-    - stumpy >=1.5.1  # [py<311]
-    - tbats >=1.1  # [py<312]
-    - tensorflow  # [py<312]
-    - tsfresh >=0.17  # [py<312]
-    - tslearn >=0.5.2,<0.6.0  # [py<311]
-    - xarray
+    - stumpy >=1.5.1                # [py<311]
+    - tbats >=1.1                   # [py<312]
+    - tensorflow                    # [py<312]
+    - tsfresh >=0.17                # [py<312]
+    - tslearn >=0.5.2,<0.6.0        # [py<311]
 
 test:
   requires:
