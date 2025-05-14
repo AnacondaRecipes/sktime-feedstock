@@ -59,17 +59,13 @@ requirements:
     - tsfresh >=0.17                  # [py<312]
     - tslearn >=0.5.2,<0.7.0,!=0.6.0  # [py<311]
 
+# Tests passing locally but take very long time to run (15min per py version)
+# Disabling on CI to not clog it up
 test:
-  # source_files:
-    # - sktime/tests
   requires:
     - pip
-    - pytest
   commands:
     - pip check
-    # Tests passing locally but take very long time to run (15min per py version)
-    # Disabling on CI to not clog it up
-    # - pytest sktime/tests
   imports:
     - sktime
     - sktime.classification
