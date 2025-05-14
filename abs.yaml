@@ -1,2 +1,5 @@
 upload_channels:
   - sfe1ed40
+
+channels:
+  - https://staging.continuum.io/prefect/fs/skbase-feedstock/pr2/7cb9547

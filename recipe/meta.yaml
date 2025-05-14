@@ -1,5 +1,5 @@
 {% set name = "sktime" %}
-{% set version = "0.24.1" %}
+{% set version = "0.26.0" %}
 
 package:
   name: {{ name }}
@@ -7,12 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9d5ac84546676fd64fb05bb5fc077d38703bea3bcf711885e992da7bf12f6b83
+  sha256: 4b3641c8c93d55f285c5d12101263e40a098650877aff4b2e63d9c1a3a63b8e8
   patches:
     - 0001-Only-inlude-sktime-package.patch
 
 build:
   number: 0
+  skip: True  # [py<38 or py>312]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
@@ -22,48 +23,53 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >61
     - wheel
   run:
     - python
-    - numpy <1.27,>=1.21
+    - numpy >=1.21,<1.27
     - packaging
     - pandas >=1.1,<2.2.0
-    - skbase <0.7.0
-    - scikit-learn >=0.24,<1.4.0
+    - skbase <0.8.0
+    - scikit-learn >=0.24,<1.5.0
     - scipy >=1.2.0,<2.0.0
   run_constrained:
-    - arch >=5.6,<6.3.0
+    - arch >=5.6,<6.4.0
     - dash !=2.9.0
-    - esig 0.9.7                    # [py<310]
-    - filterpy >=1.4.5              # [py<311]
+    - dask <2024.1.1
+    - esig 0.9.7                      # [py<310]
+    - filterpy >=1.4.5                # [py<311]
     - gluonts >=0.9
-    - hmmlearn >=0.2.7              # [py<311]
-    - keras-self-attention          # [py<311]
+    - hmmlearn >=0.2.7                # [py<311]
     - kotsu >=0.3.1
     - matplotlib-base >=3.3.2
-    - numba >=0.53,<0.59            # [py<312]
-    - pmdarima !=1.8.1,>=1.8,<3.0.0 # [py<312]
-    - prophet >=1.1                 # [py<312]
+    - numba >=0.53,<0.59              # [py<312]
+    - pmdarima !=1.8.1,>=1.8,<3.0.0   # [py<312]
+    - prophet >=1.1                   # [py<312]
     - pycatch22 <0.4.4
     - pykalman-bardo >=0.9.7,<0.10
-    - pyod >=0.8                    # [py<311]
+    - pyod >=0.8                      # [py<311]
     - scikit_posthocs >=0.6.5
     - seaborn >=0.11
     - skpro >=2,<2.2.0
-    - statsforecast >=0.5.2,<1.7.0  # [py<312]
+    - statsforecast >=0.5.2,<1.7.0    # [py<312]
     - statsmodels >=0.12.1
-    - stumpy >=1.5.1                # [py<311]
-    - tbats >=1.1                   # [py<312]
-    - tensorflow                    # [py<312]
-    - tsfresh >=0.17                # [py<312]
-    - tslearn >=0.5.2,<0.6.0        # [py<311]
+    - stumpy >=1.5.1                  # [py<311]
+    - tbats >=1.1                     # [py<312]
+    - tsfresh >=0.17                  # [py<312]
+    - tslearn >=0.5.2,<0.7.0,!=0.6.0  # [py<311]
 
 test:
+  # source_files:
+    # - sktime/tests
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    # Tests passing locally but take very long time to run (15min per py version)
+    # Disabling on CI to not clog it up
+    # - pytest sktime/tests
   imports:
     - sktime
     - sktime.classification
@@ -78,13 +84,13 @@ test:
 
 
 about:
-  home: https://github.com/sktime/sktime
+  home: https://www.sktime.net
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: A unified framework for machine learning with time series
   description: A unified framework for machine learning with time series
-  doc_url: https://www.sktime.net/en/latest/
+  doc_url: https://www.sktime.net
   dev_url: https://github.com/sktime/sktime
 
 extra:
