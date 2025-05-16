@@ -62,10 +62,14 @@ requirements:
 # Tests passing locally but take very long time to run (15min per py version)
 # Disabling on CI to not clog it up
 test:
+  source_files:
+    - sktime/tests
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest sktime/tests
   imports:
     - sktime
     - sktime.classification
