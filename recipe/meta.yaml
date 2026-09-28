@@ -12,14 +12,11 @@ source:
     - 0001-Only-inlude-sktime-package.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<38 or py>312]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
-  build:
-    - m2-patch  # [win]
-    - patch  # [not win]
   host:
     - python
     - pip
